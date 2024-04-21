@@ -55,7 +55,7 @@ export const OrderCreationForm = () => {
     return (
         <>
             <Box sx={{ margin: 3 }}>
-                <Typography>Новый заказ</Typography>
+                <Typography variant='h5' marginBottom={1}>Новый заказ</Typography>
                 <Stack spacing={3}>
                     <TextField
                         fullWidth
