@@ -3,11 +3,12 @@ import './App.css';
 import { store } from './store';
 import { Route, Routes } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, Button, Box, Icon } from '@mui/material';
-import WaybillCreationForm from './components/waybills/WaybillCreationForm';
+import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import { OrderList } from './components/orders/OrderList';
 import { OrderCreationForm } from './components/orders/OrderCreationForm';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+
+const root = '/orders';
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
             <Typography
               variant="h6"
               component='a'
-              href='/'
+              href={root}
               sx={{
                 mr: 2,
                 color: 'inherit',
@@ -36,9 +37,8 @@ const App = () => {
         </AppBar>
         <BrowserRouter>
           <Routes>
-            <Route path="*" element={<OrderList />} />
-            <Route path="orders" element={<OrderList />} />
-            <Route path="orders/new" element={<OrderCreationForm />} />
+            <Route path="/orders" element={<OrderList />} />
+            <Route path="/orders/new" element={<OrderCreationForm />} />
           </Routes>
         </BrowserRouter>
       </Provider>
