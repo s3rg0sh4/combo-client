@@ -6,7 +6,6 @@ export interface Waybill {
     orderId: string;
     routeSheetId: string;
     creationDate: Date;
-    arrivalDate: Date;
     temperature: Temperature;
     temperatureRemark: string;
     declaredCargo: Cargo;
@@ -81,7 +80,6 @@ export const initialWaybill: Waybill = {
     commentaries: [],
 
     creationDate: dayjs().toDate(),
-    arrivalDate: dayjs().toDate(),
 
     // creationDate: dayjs().toLocaleString(),
     // arrivalDate: dayjs().toLocaleString(),

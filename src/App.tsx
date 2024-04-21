@@ -1,26 +1,46 @@
 import { Provider } from 'react-redux';
 import './App.css';
-import WaybillCreationForm from './components/waybills/WaybillCreationForm'
-import { AppBar, Button, Container, Stack, Toolbar, Typography } from '@mui/material';
 import { store } from './store';
+import { Route, Routes } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
+import { AppBar, Toolbar, Typography, Button, Box, Icon } from '@mui/material';
+import WaybillCreationForm from './components/waybills/WaybillCreationForm';
+import { OrderList } from './components/orders/OrderList';
+import { OrderCreationForm } from './components/orders/OrderCreationForm';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Provider store={store}>
-        <Stack spacing={1}>
-          <AppBar position="static">
-            <Toolbar>
-              <Typography variant="h6" sx={{ flexGrow: 1 }}>
-                Combo
-              </Typography>
-              <Button color="inherit">Login</Button>
-            </Toolbar>
-          </AppBar>
-          <Container>
-            <WaybillCreationForm />
-          </Container>
-        </Stack>
+        <AppBar position="static" sx={{ marginBottom: 1 }}>
+          <Toolbar>
+            <Typography
+              variant="h6"
+              component='a'
+              href='/'
+              sx={{
+                mr: 2,
+                color: 'inherit',
+                textDecoration: 'none',
+                alignItems: 'center',
+                display: 'flex'
+              }}
+            >
+              <LocalShippingIcon sx={{ marginRight: 1 }} />
+              Combo
+            </Typography>
+            <Box flexGrow={1} />
+            <Button color="inherit">Login</Button>
+          </Toolbar>
+        </AppBar>
+        <BrowserRouter>
+          <Routes>
+            <Route path="*" element={<OrderList />} />
+            <Route path="orders" element={<OrderList />} />
+            <Route path="orders/new" element={<OrderCreationForm />} />
+          </Routes>
+        </BrowserRouter>
       </Provider>
     </div>
   );

@@ -6,7 +6,14 @@ export interface Step {
     content: ReactNode[]
 }
 
-export const Stepper = ({ label, steps }: { label: string, steps: Step[] }) => {
+interface StepperProps {
+    label: string,
+    steps: Step[],
+    finishLabel: string,
+    handleFinish: React.MouseEventHandler<HTMLButtonElement>
+}
+
+export const Stepper = ({ label, steps, finishLabel, handleFinish }: StepperProps) => {
     const [activeStep, setActiveStep] = React.useState(0);
 
     const handleNext = () => {
@@ -25,18 +32,18 @@ export const Stepper = ({ label, steps }: { label: string, steps: Step[] }) => {
         <>
             <Typography>{label}</Typography>
             <StepperMUI orientation="vertical" activeStep={activeStep}>
-                {steps.map(({label, content}, id) => (
-                        <Step key={id}>
-                            <StepButton  color="inherit" onClick={handleStep(id)}>
-                                {label}
-                            </StepButton>
-                            <StepContent>
-                                <Stack spacing={1} padding={2}>
-                                    {content}
-                                </Stack>
-                            </StepContent>
-                        </Step>
-                    ))
+                {steps.map(({ label, content }, id) => (
+                    <Step key={id}>
+                        <StepButton color="inherit" onClick={handleStep(id)}>
+                            {label}
+                        </StepButton>
+                        <StepContent>
+                            <Stack spacing={1} padding={2}>
+                                {content}
+                            </Stack>
+                        </StepContent>
+                    </Step>
+                ))
                 }
             </StepperMUI>
             <Stack direction="row" justifyContent="space-between">
@@ -47,9 +54,10 @@ export const Stepper = ({ label, steps }: { label: string, steps: Step[] }) => {
                 >
                     Назад
                 </Button>
-                <Button onClick={handleNext}>
-                    { activeStep === steps.length - 1 ? "Создать" : "Вперед"}
-                </Button>
+                {activeStep === steps.length - 1 
+                    ? <Button onClick={handleFinish}>{finishLabel}</Button> 
+                    : <Button onClick={handleNext}>Вперед</Button>
+                }
             </Stack>
         </>
     );
