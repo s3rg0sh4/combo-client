@@ -4,9 +4,10 @@ import { store } from './store';
 import { Route, Routes } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
-import { OrderList } from './components/orders/OrderList';
-import { OrderCreationForm } from './components/orders/OrderCreationForm';
+import { OrderList } from './pages/orders/OrderList';
+import { OrderCreationForm } from './pages/orders/OrderCreationForm';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import { TrailerList } from './pages/trailers/TrailerList';
 
 const root = '/orders';
 
@@ -37,6 +38,7 @@ const App = () => {
         </AppBar>
         <BrowserRouter>
           <Routes>
+            <Route path='/trailers' element={<TrailerList/>}/>
             <Route path="/orders" element={<OrderList />} />
             <Route path="/orders/new" element={<OrderCreationForm />} />
           </Routes>
