@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Waybill } from '../types/waybill';
-import { Order, OrderDTO } from '../types/order';
+import { Order, OrderDTO, Trailer, Waybill } from '../types';
 
 export const apiService = createApi({
     reducerPath: 'api',
@@ -25,6 +24,19 @@ export const apiService = createApi({
                 method: 'POST',
                 body: order
             })
+        }),
+        getTrailerList: builder.query<Trailer[], void>({
+            query: () => '/trailer'
+        }),
+        getTrailer: builder.query<Trailer, string>({
+            query: (id) => (`/trailer${id}`)
+        }),
+        createTrailer: builder.mutation<void, Trailer>({
+            query: (trailer) => ({
+                url: '/trailer',
+                method: 'POST',
+                body: trailer
+            })
         })
     }),
 });
@@ -33,5 +45,8 @@ export const {
     useGetWaybillsQuery,
     useCreateWaybillMutation,
     useGetOrderListQuery,
-    useCreateOrderMutation
+    useCreateOrderMutation,
+    useGetTrailerListQuery,
+    useGetTrailerQuery,
+    useCreateTrailerMutation
 } = apiService;
