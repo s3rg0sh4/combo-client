@@ -6,12 +6,11 @@ import { Modal } from '../../shared';
 import { initialTrailer, RefrigeratorType, Trailer } from '../../types';
 
 const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'plateIndex', headerName: 'Plate Index', width: 130 },
-  { field: 'brend', headerName: 'Brend', width: 130 },
-  { field: 'number', headerName: 'Number', width: 130 },
-  { field: 'maxPalletes', headerName: 'Max Palletes', type: 'number', width: 120 },
-  { field: 'refrigeratorType', headerName: 'Refrigerator Type', width: 160 },
+  { field: 'plateIndex', headerName: 'Госномер', width: 130 },
+  { field: 'brend', headerName: 'Марка', width: 130 },
+  { field: 'number', headerName: 'Номер', width: 130 },
+  { field: 'maxPalletes', headerName: 'Вместимость паллет', type: 'number', width: 120 },
+  { field: 'refrigeratorType', headerName: 'Тип рефрежератора', width: 160 },
 ];
 
 export const TrailerCreationForm = () => {
