@@ -1,4 +1,4 @@
-import { Box, Stack, Typography, TextField, Button, Modal as ModalMUI, ButtonBase } from '@mui/material';
+import { Box, Stack, Typography, TextField, Button, Modal as ModalMUI, ButtonBase, ModalOwnProps } from '@mui/material';
 import { DateTimePicker } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
 import React, { ReactNode } from 'react'
@@ -16,28 +16,12 @@ const modalBaseStyle = {
     pb: 3,
 };
 
-interface ModalProps {
-    buttonLabel: string;
-    children: ReactNode;
-}
-
-export const Modal = ({children, buttonLabel} : ModalProps) => {
-    const [modal, setModal] = React.useState(false);
-    const handleOpen = () => {
-        setModal(true);
-    };
-    const handleClose = () => {
-        setModal(false);
-    };
-
+export const Modal = (props: ModalOwnProps) => {
     return (
-        <>
-            <ModalMUI open={modal} onClose={handleClose}>
-                <Box sx={modalBaseStyle}>
-                    {children}
-                </Box>
-            </ModalMUI>
-            <Button onClick={handleOpen}>{buttonLabel}</Button>
-        </>
+        <ModalMUI {...props}>
+            <Box sx={modalBaseStyle}>
+                {props.children}
+            </Box>
+        </ModalMUI>
     )
 }

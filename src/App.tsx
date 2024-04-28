@@ -3,7 +3,7 @@ import './App.css';
 import { store } from './store';
 import { Route, Routes, useNavigate } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, Box, Container } from '@mui/material';
 import { OrderList } from './pages/orders/OrderList';
 import { OrderCreationForm } from './pages/orders/OrderCreationForm';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
@@ -46,7 +46,7 @@ const App = () => {
     <div className="App">
       <Provider store={store}>
         <BrowserRouter>
-          <Header/>
+          <Header />
           <Routes>
             <Route path='/trailers' element={<TrailerList />} />
             <Route path="/orders" element={<OrderList />} />

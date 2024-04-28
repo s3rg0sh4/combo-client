@@ -37,6 +37,19 @@ export const apiService = createApi({
                 method: 'POST',
                 body: trailer
             })
+        }),
+        deleteTrailerList: builder.mutation<void, string[]>({
+            query: (ids) => ({
+                url: '/trailer',
+                method: 'DELETE',
+                body: ids
+            })
+        }),
+        deleteTrailer: builder.mutation<void, string>({
+            query: (id) => ({
+                url: `/trailer${id}`,
+                method: 'DELETE',
+            })
         })
     }),
 });
@@ -48,5 +61,7 @@ export const {
     useCreateOrderMutation,
     useGetTrailerListQuery,
     useGetTrailerQuery,
-    useCreateTrailerMutation
+    useCreateTrailerMutation,
+    useDeleteTrailerListMutation,
+    useDeleteTrailerMutation
 } = apiService;
