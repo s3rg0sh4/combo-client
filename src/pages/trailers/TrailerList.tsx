@@ -12,13 +12,13 @@ const columns: GridColDef[] = [
 ];
 
 export const TrailerList = () => {
-  const { data: trailers, isLoading, isError, refetch: refetchTrailers } = useGetTrailerListQuery();
+  const { data: trailers, isLoading, isError, refetch } = useGetTrailerListQuery();
 
   const [deleteRange, { isSuccess: isDeleted }] = useDeleteTrailerListMutation();
   const [selected, setSelected] = useState<string[]>([]);
 
   useEffect(() => {
-    refetchTrailers();
+    refetch();
   }, [isDeleted])
 
   if (isLoading) {
@@ -26,7 +26,7 @@ export const TrailerList = () => {
   }
 
   if (isError && (!trailers || trailers.length === 0)) {
-    return (<TrailerCreationForm onCreated={refetchTrailers} />)
+    return (<TrailerCreationForm onCreated={refetch} />)
   }
 
   return (
@@ -34,7 +34,7 @@ export const TrailerList = () => {
       <Box sx={{ display: 'flex' }}>
         <Button color='error' onClick={() => deleteRange(selected)}>Удалить</Button>
         <Box sx={{ flexGrow: 1 }} />
-        <TrailerCreationForm onCreated={refetchTrailers} />
+        <TrailerCreationForm onCreated={refetch} />
       </Box>
       <DataGrid
         rows={trailers}
