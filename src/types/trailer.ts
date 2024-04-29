@@ -4,7 +4,6 @@ export interface Trailer {
     id: string;
     plateIndex: string;
     brend: string;
-    number: string;
     maxPalletes: number;
     refrigeratorType: RefrigeratorType;
 }
@@ -21,7 +20,6 @@ export const initialTrailer = {
     id: guidEmpty,
     plateIndex: '',
     brend: '',
-    number: '',
     maxPalletes: 0,
     refrigeratorType: RefrigeratorType.None,
   };

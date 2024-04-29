@@ -16,7 +16,7 @@ export const TrailerCreationForm = ({ sx, onCreated }: { sx?: SxProps, onCreated
   const handleClose = () => {
     setModal(false);
   };
-  
+
   return (
     <>
       <Button onClick={handleOpen}>Добавить прицеп</Button>
@@ -25,7 +25,6 @@ export const TrailerCreationForm = ({ sx, onCreated }: { sx?: SxProps, onCreated
           <Typography variant='h6'>Добавление прицепа</Typography>
           <TextField label="Госномер" fullWidth margin="normal" value={trailer.plateIndex} onChange={e => setTrailer({ ...trailer, plateIndex: e.target.value })} />
           <TextField label="Производитель" fullWidth margin="normal" value={trailer.brend} onChange={e => setTrailer({ ...trailer, brend: e.target.value })} />
-          <TextField label="Номер" fullWidth margin="normal" value={trailer.number} onChange={e => setTrailer({ ...trailer, number: e.target.value })} />
           <TextField label="Макс. кол-во паллет" type="number" fullWidth margin="normal" value={trailer.maxPalletes} onChange={e => setTrailer({ ...trailer, maxPalletes: Number(e.target.value) })} />
           <TextField label="Тип рефрежератора" select sx={{ textAlign: 'start' }} defaultValue={RefrigeratorType.None} fullWidth margin="normal" value={trailer.refrigeratorType} onChange={e => setTrailer({ ...trailer, refrigeratorType: (e.target.value as RefrigeratorType) })} >
             {Object.keys(RefrigeratorType).map(item =>
@@ -43,8 +42,7 @@ export const TrailerCreationForm = ({ sx, onCreated }: { sx?: SxProps, onCreated
 const columns: GridColDef[] = [
   { field: 'plateIndex', headerName: 'Госномер', width: 130 },
   { field: 'brend', headerName: 'Марка', width: 130 },
-  { field: 'number', headerName: 'Номер', width: 130 },
-  { field: 'maxPalletes', headerName: 'Вместимость паллет', type: 'number', width: 120 },
+  { field: 'maxPalletes', headerName: 'Вместимость паллет', type: 'number', width: 120, align: 'left', headerAlign: 'left' },
   { field: 'refrigeratorType', headerName: 'Тип рефрежератора', width: 160 },
 ];
 
