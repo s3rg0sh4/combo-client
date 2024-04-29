@@ -1,14 +1,16 @@
-import { Box, Stack, Typography, TextField, Button, Modal as ModalMUI, ButtonBase, ModalOwnProps } from '@mui/material';
+import { Box, Stack, Typography, TextField, Button, Modal as ModalMUI, ButtonBase, ModalOwnProps, SxProps } from '@mui/material';
 import { DateTimePicker } from '@mui/x-date-pickers';
 import dayjs from 'dayjs';
 import React, { ReactNode } from 'react'
 
-const modalBaseStyle = {
+const modalBaseStyle: SxProps = {
     position: 'absolute' as 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
+    maxHeight: '90vh',
+    overflow: 'auto',
     bgcolor: 'background.paper',
     boxShadow: 24,
     pt: 2,

@@ -26,7 +26,7 @@ export interface WaybillDTO {
     status: WaybillStatus;
 }
 
-export const initialOrder = {
+export const initialOrder: OrderDTO = {
     id: guidEmpty,
     creationDate: dayjs().toDate(),
     orderer: "",

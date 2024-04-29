@@ -1,7 +1,7 @@
 import { Box, Button, CircularProgress, Table } from '@mui/material'
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { useEffect, useState } from 'react'
-import { useDeleteTrailerListMutation, useGetTrailerListQuery } from '../../service/api';
+import { useDeleteTrailerListMutation, useGetTrailerListQuery } from '../../../service/api';
 import { TrailerCreationForm } from './TrailerCreationForm';
 
 const columns: GridColDef[] = [
@@ -25,7 +25,7 @@ export const TrailerList = () => {
     return (<CircularProgress />)
   }
 
-  if (isError && (!trailers || trailers.length === 0)) {
+  if (!isError && (!trailers || trailers.length === 0)) {
     return (<TrailerCreationForm onCreated={refetch} />)
   }
 
@@ -37,6 +37,7 @@ export const TrailerList = () => {
         <TrailerCreationForm onCreated={refetch} />
       </Box>
       <DataGrid
+        key='trailerList'
         rows={trailers}
         columns={columns}
         initialState={{

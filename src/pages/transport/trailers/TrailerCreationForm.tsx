@@ -1,8 +1,8 @@
 import { Button, MenuItem, SxProps, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { useCreateTrailerMutation } from '../../service/api';
-import { Modal } from '../../shared';
-import { initialTrailer, RefrigeratorType, Trailer } from '../../types';
+import { useCreateTrailerMutation } from '../../../service/api';
+import { Modal } from '../../../shared';
+import { initialTrailer, RefrigeratorType, Trailer } from '../../../types';
 
 
 export const TrailerCreationForm = ({ sx, onCreated }: { sx?: SxProps; onCreated: () => void; }) => {

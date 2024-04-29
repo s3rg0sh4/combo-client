@@ -50,8 +50,8 @@ const Row = ({ row: order }: { row: OrderDTO }) => {
                 </TableCell>
                 <TableCell>{order.waybills.map(w => w.destination).join(', ')}</TableCell>
                 <TableCell>{order.orderer}</TableCell>
-                <TableCell>{dayjs(order.waybills[0].arrivalDate).format("DD.MM.YYYY mm:hh")}</TableCell>
-                <TableCell>{dayjs(order.creationDate).format("DD.MM.YYYY mm:hh")}</TableCell>
+                <TableCell>{dayjs(order.waybills[0].arrivalDate).format("DD.MM.YYYY hh:mm")}</TableCell>
+                <TableCell>{dayjs(order.creationDate).format("DD.MM.YYYY hh:mm")}</TableCell>
             </TableRow>
             <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>

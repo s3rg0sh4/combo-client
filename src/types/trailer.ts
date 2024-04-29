@@ -16,7 +16,7 @@ export enum RefrigeratorType {
     Multitemperature = 'Multitemperature'
 }
 
-export const initialTrailer = {
+export const initialTrailer: Trailer = {
     id: guidEmpty,
     plateIndex: '',
     brend: '',

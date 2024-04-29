@@ -7,7 +7,8 @@ import { AppBar, Toolbar, Typography, Button, Box, Container } from '@mui/materi
 import { OrderList } from './pages/orders/OrderList';
 import { OrderCreationForm } from './pages/orders/OrderCreationForm';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
-import { TrailerList } from './pages/trailers/TrailerList';
+import { TrailerList } from './pages/transport/trailers/TrailerList';
+import { TruckList } from './pages/transport/trucks/TruckList';
 
 const root = '/orders';
 
@@ -34,6 +35,7 @@ const Header = () => {
         <Box flexGrow={1} />
         <Button color='inherit' onClick={() => navigate('orders')}>Заказы</Button>
         <Button color='inherit' onClick={() => navigate('trailers')}>Прицепы</Button>
+        <Button color='inherit' onClick={() => navigate('trucks')}>Грузовики</Button>
         <Box flexGrow={1} />
         <Button color="inherit">Login</Button>
       </Toolbar>
@@ -49,6 +51,7 @@ const App = () => {
           <Header />
           <Routes>
             <Route path='/trailers' element={<TrailerList />} />
+            <Route path='/trucks' element={<TruckList />} />
             <Route path="/orders" element={<OrderList />} />
             <Route path="/orders/new" element={<OrderCreationForm />} />
           </Routes>

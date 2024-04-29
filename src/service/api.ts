@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { Order, OrderDTO, Trailer, Waybill } from '../types';
+import { Truck } from '../types/truck';
 
 export const apiService = createApi({
     reducerPath: 'api',
@@ -50,7 +51,33 @@ export const apiService = createApi({
                 url: `/trailer${id}`,
                 method: 'DELETE',
             })
-        })
+        }),
+        getTruckList: builder.query<Truck[], void>({
+            query: () => '/truck'
+        }),
+        getTruck: builder.query<Truck, string>({
+            query: (id) => (`/truck${id}`)
+        }),
+        createTruck: builder.mutation<void, Truck>({
+            query: (truck) => ({
+                url: '/truck',
+                method: 'POST',
+                body: truck
+            })
+        }),
+        deleteTruckList: builder.mutation<void, string[]>({
+            query: (ids) => ({
+                url: '/truck',
+                method: 'DELETE',
+                body: ids
+            })
+        }),
+        deleteTruck: builder.mutation<void, string>({
+            query: (id) => ({
+                url: `/truck${id}`,
+                method: 'DELETE',
+            })
+        }),
     }),
 });
 
@@ -63,5 +90,10 @@ export const {
     useGetTrailerQuery,
     useCreateTrailerMutation,
     useDeleteTrailerListMutation,
-    useDeleteTrailerMutation
+    useDeleteTrailerMutation,
+    useGetTruckListQuery,
+    useGetTruckQuery,
+    useCreateTruckMutation,
+    useDeleteTruckListMutation,
+    useDeleteTruckMutation
 } = apiService;
