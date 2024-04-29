@@ -1,5 +1,5 @@
 import { TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody, Box, Collapse, IconButton, Typography, Button, TablePagination } from "@mui/material"
-import { useGetOrderListQuery } from "../../service/api"
+import { useGetOrderListQuery } from '../../store/api/orderService';
 import React from "react";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';

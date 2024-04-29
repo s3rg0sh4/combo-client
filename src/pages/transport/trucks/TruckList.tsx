@@ -1,7 +1,7 @@
 import { Box, Button, CircularProgress, Table } from '@mui/material'
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { useEffect, useState } from 'react'
-import { useDeleteTruckListMutation, useGetTruckListQuery } from '../../../service/api';
+import { useDeleteTruckListMutation, useGetTruckListQuery } from '../../../store/api/truckService';
 import { TruckCreationForm } from './TruckCreationForm';
 
 const columns: GridColDef[] = [

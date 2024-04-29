@@ -5,7 +5,7 @@ import dayjs from 'dayjs'
 import WaybillCreationForm from '../waybills/WaybillCreationForm'
 import { initialWaybill, Waybill } from '../../types'
 import { initialOrder, Order } from '../../types/order'
-import { useCreateOrderMutation } from '../../service/api'
+import { useCreateOrderMutation } from '../../store/api/orderService'
 import AddIcon from '@mui/icons-material/Add';
 import ArticleIcon from '@mui/icons-material/Article';
 

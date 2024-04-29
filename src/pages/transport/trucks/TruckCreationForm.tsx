@@ -1,6 +1,6 @@
 import { Button, SxProps, TextField, Typography } from '@mui/material';
 import React, { ChangeEvent, useState } from 'react';
-import { useCreateTruckMutation } from '../../../service/api';
+import { useCreateTruckMutation } from '../../../store/api/truckService';
 import { Modal } from '../../../shared';
 import { initialTruck, Truck } from '../../../types/truck';
 

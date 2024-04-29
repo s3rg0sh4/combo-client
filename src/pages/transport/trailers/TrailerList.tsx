@@ -1,7 +1,7 @@
 import { Box, Button, CircularProgress, Table } from '@mui/material'
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { useEffect, useState } from 'react'
-import { useDeleteTrailerListMutation, useGetTrailerListQuery } from '../../../service/api';
+import { useDeleteTrailerListMutation, useGetTrailerListQuery } from '../../../store/api/trailerService';
 import { TrailerCreationForm } from './TrailerCreationForm';
 
 const columns: GridColDef[] = [

@@ -1,12 +1,19 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { apiService } from "../service/api";
+import { orderService, trailerService, truckService, waybillService } from "./api";
 
 export const store = configureStore({
     reducer: {
-        [apiService.reducerPath]: apiService.reducer 
+        [orderService.reducerPath]: orderService.reducer,
+        [trailerService.reducerPath]: trailerService.reducer,
+        [truckService.reducerPath]: truckService.reducer,
+        [waybillService.reducerPath]: waybillService.reducer,
     },
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(apiService.middleware),
+        getDefaultMiddleware()
+            .concat(orderService.middleware)
+            .concat(trailerService.middleware)
+            .concat(truckService.middleware)
+            .concat(waybillService.middleware),
 })
 
 export type RootState = ReturnType<typeof store.getState>
